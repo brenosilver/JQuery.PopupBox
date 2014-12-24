@@ -4,7 +4,7 @@ JQuery.PopupBox
 Lightweight plugin for making hidden elements to popup in the center of the screen.
 
 Fiddle:
-http://jsfiddle.net/f5Lwsqh5/
+http://jsfiddle.net/brenosilver/d6nvd9vr/
 
 <h2>Usage</h2>
 
@@ -30,3 +30,9 @@ http://jsfiddle.net/f5Lwsqh5/
 		effect : toggle | slideToggle
 		
 		ex: $("#contact").popupBox({cover: true, effect: 'toggle'})
+		
+<h4>CallBack:</h4>
+	onFinish:       function(){}
+	ex: $("#contact").popupBox({}, function(){
+			console.log("Finished")
+  	    })
