@@ -35,4 +35,4 @@ http://jsfiddle.net/brenosilver/d6nvd9vr/
 	onFinish:       function(){}
 	ex: $("#contact").popupBox({cover: true, effect: 'toggle'}, function(){
 		console.log("Finished")
-	})
+  	    })
