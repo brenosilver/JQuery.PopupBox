@@ -31,8 +31,9 @@ http://jsfiddle.net/brenosilver/d6nvd9vr/
 		
 		ex: $("#contact").popupBox({cover: true, effect: 'toggle'})
 		
-<h4>CallBack:</h4>
-	onFinish:       function(){}
-	ex: $("#contact").popupBox({}, function(){
-			console.log("Finished")
+<h4>CallBacks:</h4>
+	onFinish:       function(){},
+	onHide:       	function(){}
+	ex: $("#contact").popupBox({onHide: function(){
+			console.log("Finished")}
   	    })
