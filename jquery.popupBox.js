@@ -1,3 +1,6 @@
+//    Created by Breno D. Silva
+//    Version 0.1
+
 //  This file is part of the jQuery PopupBox Plugin.
 //
 //    The jQuery PopupBox Plugin is free software: you can redistribute it
