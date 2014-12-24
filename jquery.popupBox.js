@@ -1,5 +1,5 @@
 //    Created by Breno D. Silva
-//    Version 0.11 / 12-24-2014
+//    Version 0.12 / 12-24-2014
 
 //  This file is part of the jQuery PopupBox Plugin.
 //
@@ -18,7 +18,7 @@
 
 (function($){
 	
-	$.fn.popupBox = function(options, onFinish){
+	$.fn.popupBox = function(options){
 		event.preventDefault();
 		event.stopPropagation();
 		
@@ -26,10 +26,13 @@
 		var box			= $(this);
 		var cover		= null;
 		var settings	= null;
+		var isHidden	= false;
 		
 		this.defaults = {
 			cover: false,
-			effect: 'slideToggle'
+			effect: 'slideToggle',
+			onHide: null,
+			onFinish: null
 		};
 		
 		this.options = options;
@@ -42,18 +45,17 @@
 			var screenH = $(window).height();
 			var boxW	= box.outerWidth();
 			var boxH	= box.outerHeight();
-			
+
 			var computedX = (screenW - boxW) / 2;
 			var computedY = (screenH - boxH) / 2;
 		
 			box.css({'left': computedX+'px', 'top': computedY+'px', 'position': 'fixed', 'z-index':1000});
 		})();
-		
-		
+				
 		// Make cover
 		function makeCover(){
-				$("<style>").text("#page-cover { position: fixed;top: 0px; left: 0px; height: 100%; width: 100%; background-color: #000; opacity: 0.4; filter: alpha(opacity=40); z-index: 900; }").appendTo("head");
-				cover = $("<div id='page-cover'>").appendTo("body");
+			$("<style>").text("#page-cover { position: fixed;top: 0px; left: 0px; height: 100%; width: 100%; background-color: #000; opacity: 0.4; filter: alpha(opacity=40); z-index: 900; }").appendTo("head");
+			cover = $("<div id='page-cover'>").appendTo("body");
 		}
 		
 		if(this.settings.cover == true) 
@@ -75,19 +77,29 @@
 					else box.slideUp();
 			}
 		})(false);
-		
+
 		// close
 		$('html').click(function(){
 			effect(true);
 			if(settings.cover == true)
 				cover.remove();
+			onHide();
+			isHidden = true;
+			
 		});
 		
 		$(box, clickEl).click(function(e){
 			e.stopPropagation();
 		});
 		
+		// onHide callback
+		function onHide(){
+			if(!isHidden && settings.onHide)
+				settings.onHide();
+		}
+		
 		// onFinish callback
-		if(onFinish) onFinish();
+		if(this.settings.onFinish)
+			this.settings.onFinish();
 	}
 })(jQuery);
