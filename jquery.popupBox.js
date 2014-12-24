@@ -1,5 +1,5 @@
 //    Created by Breno D. Silva
-//    Version 0.11
+//    Version 0.11 / 12-24-2014
 
 //  This file is part of the jQuery PopupBox Plugin.
 //
@@ -25,30 +25,43 @@
 		var clickEl	= $(event['currentTarget']);
 		var box		= $(this);
 		var cover	= null;
+		var settings = null;
 		
-		if(typeof options === "undefined" || options === null)
-			options = {cover: false, effect: 'slideToggle'};
+		this.defaults = {
+			cover: false,
+			effect: 'slideToggle'
+		};
 		
-		var screenW = $(window).width();
-		var screenH = $(window).height();
-		var boxW 	= box.outerWidth();
-		var boxH 	= box.outerHeight();
+		this.options = options;
+		this.settings = $.extend({}, this.defaults, this.options);
+		settings = this.settings;
 		
-		var computedX = (screenW - boxW) / 2;
-		var computedY = (screenH - boxH) / 2;
-				
-		box.css({'left': computedX+'px', 'top': computedY+'px', 'position': 'fixed', 'z-index':1000});
+		// Set middle
+		(function(){
+			var screenW = $(window).width();
+			var screenH = $(window).height();
+			var boxW 	= box.outerWidth();
+			var boxH 	= box.outerHeight();
+			
+			var computedX = (screenW - boxW) / 2;
+			var computedY = (screenH - boxH) / 2;
+		
+			box.css({'left': computedX+'px', 'top': computedY+'px', 'position': 'fixed', 'z-index':1000});
+		})();
 		
 		
 		// Make cover
-		if(options.cover == true){			
-			$("<style>").text("#page-cover { position: fixed;top: 0px; left: 0px; height: 100%; width: 100%; background-color: #000; opacity: 0.4; filter: alpha(opacity=40); z-index: 900; }").appendTo("head");
-			
-			cover = $("<div id='page-cover'>").appendTo("body");
+		function makeCover(){
+				$("<style>").text("#page-cover { position: fixed;top: 0px; left: 0px; height: 100%; width: 100%; background-color: #000; opacity: 0.4; filter: alpha(opacity=40); z-index: 900; }").appendTo("head");
+				cover = $("<div id='page-cover'>").appendTo("body");
 		}
 		
+		if(this.settings.cover == true) 
+			makeCover();
+		
+		// check effect
 		(effect = function(hide){
-			switch(options.effect){
+			switch(settings.effect){
 				case "slideToggle":
 					if(!hide) box.slideToggle();
 					else box.slideUp();
@@ -74,13 +87,7 @@
 			e.stopPropagation();
 		});
 		
-		function isFunction(functionToCheck) {
-			var getType = {};
-			return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
-		}
-		// onFinish Callback
-		if(!(typeof onFinish === "undefined" || onFinish === null))
-			if(isFunction(onFinish))
-				onFinish();
+		// onFinish callback
+		if(onFinish) onFinish();
 	}
 })(jQuery);
