@@ -25,7 +25,7 @@ http://jsfiddle.net/f5Lwsqh5/
 		display:none;
 	}
 		
-<h4>Options</h4>
+<h4>Options:</h4>
 		cover : true | false
 		effect : toggle | slideToggle
 		
