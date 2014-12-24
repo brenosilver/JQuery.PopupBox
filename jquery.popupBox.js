@@ -22,10 +22,10 @@
 		event.preventDefault();
 		event.stopPropagation();
 		
-		var clickEl	= $(event['currentTarget']);
-		var box		= $(this);
-		var cover	= null;
-		var settings = null;
+		var clickEl		= $(event['currentTarget']);
+		var box			= $(this);
+		var cover		= null;
+		var settings	= null;
 		
 		this.defaults = {
 			cover: false,
@@ -40,8 +40,8 @@
 		(function(){
 			var screenW = $(window).width();
 			var screenH = $(window).height();
-			var boxW 	= box.outerWidth();
-			var boxH 	= box.outerHeight();
+			var boxW	= box.outerWidth();
+			var boxH	= box.outerHeight();
 			
 			var computedX = (screenW - boxW) / 2;
 			var computedY = (screenH - boxH) / 2;
@@ -79,10 +79,10 @@
 		// close
 		$('html').click(function(){
 			effect(true);
-			if(!(typeof cover === "undefined" || cover === null))
+			if(settings.cover == true)
 				cover.remove();
-			
 		});
+		
 		$(box, clickEl).click(function(e){
 			e.stopPropagation();
 		});
