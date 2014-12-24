@@ -1,7 +1,10 @@
 JQuery.PopupBox
 ===============
-
-Lightweight plugin for making hidden elements to popup in the center of the screen.
+JQuery PopupBox v0.11 / 12-24-2014  
+  
+<strong>Lightweight plugin for making hidden elements to popup in the center of the screen.</strong>  
+  
+Breno Dadalto Silva (brenosilver) licensed under the MIT and GPL licenses.
 
 Fiddle:
 http://jsfiddle.net/brenosilver/d6nvd9vr/
