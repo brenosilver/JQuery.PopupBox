@@ -3,7 +3,8 @@ JQuery.PopupBox
 
 JQuery Plugin for Popup elements
 
-Usage
+<h4>Usage</h4>
+
 		$(document).ready(function(){
 			$(".link").click(function(){
 				$("#contact").popupBox();
