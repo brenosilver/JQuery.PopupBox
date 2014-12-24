@@ -35,5 +35,5 @@ http://jsfiddle.net/brenosilver/d6nvd9vr/
 	onFinish:       function(){},
 	onHide:       	function(){}
 	ex: $("#contact").popupBox({onHide: function(){
-			console.log("Finished")}
+			console.log("Hidden")}
   	    })
