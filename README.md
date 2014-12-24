@@ -34,5 +34,5 @@ http://jsfiddle.net/brenosilver/d6nvd9vr/
 <h4>CallBack:</h4>
 	onFinish:       function(){}
 	ex: $("#contact").popupBox({cover: true, effect: 'toggle'}, function(){
-		console.log("Finished")
+			console.log("Finished")
   	    })
