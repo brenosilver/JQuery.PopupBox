@@ -11,7 +11,7 @@ JQuery Plugin for Popup elements
 			});
 		});
 		
-		Options
+<h4>Options</h4>
 		cover : true | false
 		effect : toggle | slideToggle
 		
