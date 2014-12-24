@@ -1,15 +1,29 @@
 JQuery.PopupBox
 ===============
 
-JQuery Plugin for Popup elements
+Lightweight plugin for making hidden elements to popup in the center of the screen.
 
-<h4>Usage</h4>
+Fiddle:
+http://jsfiddle.net/f5Lwsqh5/
 
-		$(document).ready(function(){
-			$(".link").click(function(){
-				$("#contact").popupBox();
-			});
+<h2>Usage</h2>
+
+<h4>Include:</h4>
+
+	<script src="js/jquery.popupBox.js"></script>
+
+<h4>js:</h4>
+	$(document).ready(function(){
+		$(".link").click(function(){
+			$("#contact").popupBox();
 		});
+	});
+	
+<h4>css:</h4>
+
+	#contact {
+		display:none;
+	}
 		
 <h4>Options</h4>
 		cover : true | false
