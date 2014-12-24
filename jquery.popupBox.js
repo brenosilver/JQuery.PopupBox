@@ -1,5 +1,5 @@
 //    Created by Breno D. Silva
-//    Version 0.12 / 12-24-2014
+//    Version 0.13 / 12-24-2014
 
 //  This file is part of the jQuery PopupBox Plugin.
 //
@@ -31,6 +31,7 @@
 		this.defaults = {
 			cover: false,
 			effect: 'slideToggle',
+			duration: 400,
 			onHide: null,
 			onFinish: null
 		};
@@ -65,16 +66,20 @@
 		(effect = function(hide){
 			switch(settings.effect){
 				case "slideToggle":
-					if(!hide) box.slideToggle();
-					else box.slideUp();
+					if(!hide) box.slideToggle(settings.duration);
+					else box.slideUp(settings.duration);
 					break;
 				case "toggle":
 					if(!hide) box.toggle();
 					else box.hide();
 					break;
+				case "fadeToggle":
+					if(!hide) box.fadeToggle(settings.duration);
+					else box.fadeOut(settings.duration);
+					break;
 				default:
-					if(!hide)box.slideToggle();
-					else box.slideUp();
+					if(!hide)box.slideToggle(settings.duration);
+					else box.slideUp(settings.duration);
 			}
 		})(false);
 
