@@ -13,7 +13,7 @@
 //    You should have received a copy of the GNU General Public License along with 
 //    the jQuery PopupBox Plugin.  If not, see <http://www.gnu.org/licenses/>.
 
-$.fn.popBox = function(options){
+$.fn.popupBox = function(options){
 	event.preventDefault();
 	event.stopPropagation();
 	
