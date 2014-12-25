@@ -1,5 +1,5 @@
 //    Created by Breno D. Silva
-//    Version 0.14 / 12-25-2014
+//    Version 0.15 / 12-25-2014
 
 //  This file is part of the jQuery PopupBox Plugin.
 //
@@ -51,8 +51,11 @@
 		
 		this.options = options;
 		this.settings = $.extend({}, this.defaults, this.options);
-		this.settings.coverStyle = $.extend({}, this.defaults.coverStyle, this.options.coverStyle);
-		this.settings.boxStyle = $.extend({}, this.defaults.boxStyle, this.options.boxStyle);
+		
+		if(this.options){
+			this.settings.coverStyle = $.extend({}, this.defaults.coverStyle, this.options.coverStyle);
+			this.settings.boxStyle = $.extend({}, this.defaults.boxStyle, this.options.boxStyle);
+		}
 		settings = this.settings;
 		
 		// Set middle
