@@ -35,9 +35,16 @@ http://jsfiddle.net/brenosilver/d6nvd9vr/
 		
 		ex: $("#contact").popupBox({cover: true, effect: 'fadeToggle', duration: 600})
 		
-<h4>CallBacks:</h4>
-	onFinish:       function(){},
-	onHide:       	function(){}
-	ex: $("#contact").popupBox({onHide: function(){
-			console.log("Hidden")}
-  	    })
+		/** Styling **/
+		coverStyle: { color | opacity | zIndex }
+		boxStyle: { left | right | bottom | top | position | zIndex }
+		
+		ex: $("#contact").popupBox({ cover: true, coverStyle:{color: 'red', opacity: 0.6} })
+		
+		/** CallBacks **/
+		onFinish:       function(){}
+		onHide:       	function(){}
+		
+		ex: $("#contact").popupBox({onHide: function(){
+				console.log("Hidden")}
+	  	    })
