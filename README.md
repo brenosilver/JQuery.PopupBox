@@ -1,6 +1,6 @@
 JQuery.PopupBox
 ===============
-JQuery PopupBox v0.16 / 12-25-2014  
+JQuery PopupBox v0.17 / 12-25-2014  
   
 <strong>Lightweight plugin for making hidden elements to popup in the center of the screen.</strong>  
   
@@ -17,8 +17,8 @@ http://jsfiddle.net/brenosilver/d6nvd9vr/
 
 <h4>js:</h4>
 	$(document).ready(function(){
-		$(".link").click(function(){
-			$("#contact").popupBox();
+		$(".link").click(function(event){
+			$("#contact").popupBox(event);
 		});
 	});
 	
@@ -33,18 +33,18 @@ http://jsfiddle.net/brenosilver/d6nvd9vr/
 		effect : toggle | slideToggle | fadeToggle
 		duration : 400
 		
-		ex: $("#contact").popupBox({cover: true, effect: 'fadeToggle', duration: 600})
+		ex: $("#contact").popupBox(event, {cover: true, effect: 'fadeToggle', duration: 600})
 		
 		/** Styling **/
 		coverStyle: { color | opacity | zIndex }
 		boxStyle: { left | right | bottom | top | position | zIndex }
 		
-		ex: $("#contact").popupBox({ cover: true, coverStyle:{color: 'red', opacity: 0.6} })
+		ex: $("#contact").popupBox(event, { cover: true, coverStyle:{color: 'red', opacity: 0.6} })
 		
 		/** CallBacks **/
 		onFinish:       function(){}
 		onHide:       	function(){}
 		
-		ex: $("#contact").popupBox({onHide: function(){
+		ex: $("#contact").popupBox(event, {onHide: function(){
 				console.log("Hidden")}
 	  	    })
