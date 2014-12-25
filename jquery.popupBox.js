@@ -1,5 +1,5 @@
 //    Created by Breno D. Silva
-//    Version 0.15 / 12-25-2014
+//    Version 0.16 / 12-25-2014
 
 //  This file is part of the jQuery PopupBox Plugin.
 //
@@ -62,11 +62,11 @@
 		(function(){
 			var screenW = $(window).width();
 			var screenH = $(window).height();
-			var boxW	= box.outerWidth();
-			var boxH	= box.outerHeight();
+			var boxW	= box.outerWidth(true);
+			var boxH	= box.outerHeight(true);
 
-			var computedX = (screenW - boxW) / 2;
-			var computedY = (screenH - boxH) / 2;
+			var computedX = Math.floor((screenW - boxW) / 2);
+			var computedY = Math.floor((screenH - boxH) / 2);
 
 			box.css({'left': settings.boxStyle.left === null ? computedX+'px' : settings.boxStyle.left,
 				'top': settings.boxStyle.top === null ? computedY+'px' : settings.boxStyle.top,
