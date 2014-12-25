@@ -1,5 +1,5 @@
 //    Created by Breno D. Silva
-//    Version 0.13 / 12-24-2014
+//    Version 0.14 / 12-25-2014
 
 //  This file is part of the jQuery PopupBox Plugin.
 //
@@ -32,12 +32,27 @@
 			cover: false,
 			effect: 'slideToggle',
 			duration: 400,
+			coverStyle: {
+				color: '#000',
+				opacity: 0.4,
+				zIndex: 900
+			},
+			boxStyle: {
+				left: null,
+				right: null,
+				bottom: null,
+				top: null,
+				position: 'fixed',
+				zIndex: 905
+			},
 			onHide: null,
 			onFinish: null
 		};
 		
 		this.options = options;
 		this.settings = $.extend({}, this.defaults, this.options);
+		this.settings.coverStyle = $.extend({}, this.defaults.coverStyle, this.options.coverStyle);
+		this.settings.boxStyle = $.extend({}, this.defaults.boxStyle, this.options.boxStyle);
 		settings = this.settings;
 		
 		// Set middle
@@ -49,14 +64,23 @@
 
 			var computedX = (screenW - boxW) / 2;
 			var computedY = (screenH - boxH) / 2;
-		
-			box.css({'left': computedX+'px', 'top': computedY+'px', 'position': 'fixed', 'z-index':1000});
+
+			box.css({'left': settings.boxStyle.left === null ? computedX+'px' : settings.boxStyle.left,
+				'top': settings.boxStyle.top === null ? computedY+'px' : settings.boxStyle.top,
+				'position': settings.boxStyle.position,
+				'z-index': settings.boxStyle.zIndex,
+				'bottom': settings.boxStyle.bottom === null ? 'none' : settings.boxStyle.bottom,
+				'right': settings.boxStyle.right === null ? 'none' : settings.boxStyle.right
+			});
 		})();
 				
 		// Make cover
 		function makeCover(){
-			$("<style>").text("#page-cover { position: fixed;top: 0px; left: 0px; height: 100%; width: 100%; background-color: #000; opacity: 0.4; filter: alpha(opacity=40); z-index: 900; }").appendTo("head");
+			$("<style>").text("#page-cover {position: fixed; top: 0px; left: 0px; height: 100%; width: 100%;}").appendTo("head");
 			cover = $("<div id='page-cover'>").appendTo("body");
+			
+			var alphaOpacity = 'alpha(opacity='+settings.coverStyle.opacity*100+')';
+			cover.css({'background-color': settings.coverStyle.color, 'opacity': settings.coverStyle.opacity, 'filter': alphaOpacity, 'z-index': settings.coverStyle.zIndex});
 		}
 		
 		if(this.settings.cover == true) 
