@@ -1,5 +1,5 @@
 //    Created by Breno D. Silva
-//    Version 0.16 / 12-25-2014
+//    Version 0.17 / 12-25-2014
 
 //  This file is part of the jQuery PopupBox Plugin.
 //
@@ -18,7 +18,7 @@
 
 (function($){
 	
-	$.fn.popupBox = function(options){
+	$.fn.popupBox = function(event, options){
 		event.preventDefault();
 		event.stopPropagation();
 		
