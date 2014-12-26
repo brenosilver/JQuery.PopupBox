@@ -17,8 +17,13 @@ http://jsfiddle.net/brenosilver/d6nvd9vr/
 
 <h4>js:</h4>
 	$(document).ready(function(){
-		$('.link').popupBox($("#contact"), {cover:true});
+		$('a').popupBox($('#contact'), {cover:true});
 	});
+	
+<h4>Html:</h4>
+
+    <a href="">This is the trigger element</a>
+    <div id="contact">This is the box element</div>
 	
 <h4>css:</h4>
 
@@ -31,18 +36,18 @@ http://jsfiddle.net/brenosilver/d6nvd9vr/
 		effect : toggle | slideToggle | fadeToggle
 		duration : 400
 		
-		ex: $(".link").popupBox($('#contact'), {cover: true, effect: 'fadeToggle', duration: 600})
+		ex: $('a').popupBox($('#contact'), {cover: true, effect: 'fadeToggle', duration: 600})
 		
 		/** Styling **/
 		coverStyle: { color | opacity | zIndex }
 		boxStyle: { left | right | bottom | top | position | zIndex }
 		
-		ex: $(".link").popupBox($('#contact'), { cover: true, coverStyle:{color: 'red', opacity: 0.6} })
+		ex: $('a').popupBox($('#contact'), { cover: true, coverStyle:{color: 'red', opacity: 0.6} })
 		
 		/** CallBacks **/
 		onFinish:       function(){}
 		onHide:       	function(){}
 		
-		ex: $(".link").popupBox($('#contact'), {onHide: function(){
+		ex: $('a').popupBox($('#contact'), {onHide: function(){
 				console.log("Hidden")}
 	  	    })
